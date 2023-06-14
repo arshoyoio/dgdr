@@ -1,0 +1,29 @@
+<h3>Rapport</h3>
+
+<div class="animate__animated animate__slideInLeft container-fluid">
+    <mat-card>
+        <mat-card-content>
+            <div class="d-flex justify-content-end">
+                <div class="me-2">
+                    <button mat-stroked-button color="primary" [matMenuTriggerFor]="menu">Générer le rapport trimestriel <i class="bi bi-chevron-compact-right"></i></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>Word</button>
+                        <button mat-menu-item>Excel</button>
+                    </mat-menu>
+                </div>
+                <div class="me-2">
+                    <button mat-stroked-button color="primary" matTooltip="Fichier PowerPoint">
+                        Générer le rapport annuel
+                    </button>
+                </div>
+                <div class="me-2">
+                    <button mat-stroked-button color="primary">Exporter le planning</button>
+                </div>
+                <div>
+                    <button mat-stroked-button color="primary">Exporter le suivi de contrôle</button>
+                </div>
+
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,26 @@
+.box {
+    cursor: pointer;
+    text-decoration: none;
+}
+  
+.CardDashboard {
+    box-shadow: 0 3px 6px rgba(188, 169, 169, 0.16), 0 3px 6px rgba(174, 165, 165, 0.23);
+}
+
+.card {
+    border: none;
+}
+
+.card:hover {
+    transition: .3s ease-in-out;
+    padding-left: 20px;
+    border-left: 7px solid rgb(60, 78, 150);
+}
+
+.cardtitre {
+    /* color: #de350b; */
+    color: rgb(60, 78, 150);
+    font-weight: 600;
+    font-size: 15px;
+    font-family: 'Segoe UI', sans-serif;
+}

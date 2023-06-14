@@ -1,0 +1,26 @@
+.menu-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .menu-btn :hover {
+    text-decoration: underline;
+  }
+  
+  tr:hover {
+    background-color: #eff4f7 !important;
+  }
+  
+  .bi {
+    color: #3f51b5 !important;
+  }
+
+  .line {
+    min-width: 100px;
+    height: 10px;
+    border-radius: 5px;
+}

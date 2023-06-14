@@ -1,0 +1,65 @@
+<div class="d-flex animate__animated animate__fadeInDown justify-content-center w-100 p-4 flex-column">
+  <!-- <h3 class="mb-4">Ajout d'une fiche vierge</h3>s -->
+
+  <mat-form-field appearance="outline">
+    <mat-label>Référence</mat-label>
+    <input matInput placeholder="Placeholder" />
+    <!-- <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Déscription</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Résponsable</mat-label>
+    <mat-select>
+      <mat-option value="one">RCCI</mat-option>
+      <mat-option value="one">Manager</mat-option>
+      <mat-option value="one">Junior</mat-option>
+      <mat-option value="one">Chef de mission</mat-option>
+      <mat-option value="one">Contributeur</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Fréquence</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one">mensuel</mat-option>
+      <mat-option class="text-capitalize" value="one">trimestriel</mat-option>
+      <mat-option class="text-capitalize" value="one">semestriel</mat-option>
+      <mat-option class="text-capitalize" value="one">annuel</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Risque</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one">Faible</mat-option>
+      <mat-option class="text-capitalize" value="one">Moyen</mat-option>
+      <mat-option class="text-capitalize" value="one">Elevé</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Ajouter un fichier</mat-label>
+    <input matInput placeholder="Ajouter un fichier">
+    <button (click)="uploadFile()" mat-raised-button class="me-2" matSuffix>
+        <span>
+            <i class="bi me-2 bi-upload"></i>
+            <span>Ajouter un fichier</span>
+        </span>
+    </button>
+    <mat-hint>Il est possible d'ajouter plusieurs fichiers.</mat-hint>
+  </mat-form-field>
+
+  <div class="mt-4 d-flex justify-content-between">
+    <button mat-raised-button color="primary" (click)="add()">Ajouter une fiche vierge</button>
+
+    <button mat-button (click)="cancel()">Annuler</button>
+  </div>
+  
+</div>
+
+<input id="file-input" type="file" hidden>

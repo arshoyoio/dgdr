@@ -1,0 +1,49 @@
+<div
+  class="d-flex flex-column h-100 align-items-center p-4 pt-4 shadow-sm position-relative"
+>
+  <div
+    class="p-1 shadow border rounded position-absolute"
+    style="top: 0; right: 0"
+    (click)="minimize = !minimize"
+    >
+    <i *ngIf="!minimize" class="bi bi-chevron-left"></i>
+    <i *ngIf="minimize" class="bi bi-chevron-right"></i>
+  </div>
+  
+  <img *ngIf="!minimize" src="/assets/wl_logo/shoyo_logo.png" class="mb-4 mt-4 logo-societe" />
+
+  <div class="d-flex sidebar-elements flex-column align-items-start">
+    <a class="sidebar-link pt-3 pb-3 pe-1 ps-1 rounded w-100" routerLinkActive="sidebar-link-active" routerLink="/dashboard">
+      <img class="sidebar-link-icon" src="/assets/images/dashboard.png" />
+      <p *ngIf="!minimize" class="ml-4 sidebar-link-title">Tableau de bord</p>
+    </a>
+    <a class="sidebar-link pt-3 pb-3 pe-1 ps-1 rounded w-100" routerLinkActive="sidebar-link-active" routerLink="/planning-de-controle">
+      <img class="sidebar-link-icon" src="/assets/images/DocIc.png" />
+      <p *ngIf="!minimize" class="ml-4 sidebar-link-title">Planning de contrôle</p>
+    </a>
+    <a class="sidebar-link pt-3 pb-3 pe-1 ps-1 rounded w-100" routerLinkActive="sidebar-link-active" routerLink="/fiches-vierges">
+      <img class="sidebar-link-icon" src="/assets/images/documentPictos/mixed.svg" />
+      <p *ngIf="!minimize" class="ml-4 sidebar-link-title">Fiches vierges</p>
+    </a>
+    <a class="sidebar-link pt-3 pb-3 pe-1 ps-1 rounded w-100" routerLinkActive="sidebar-link-active" routerLink="/fiches">
+      <img class="sidebar-link-icon" src="/assets/images/documentPictos/lettre.svg" />
+      <p *ngIf="!minimize" class="ml-4 sidebar-link-title">Fiches</p>
+    </a>
+    <a class="sidebar-link pt-3 pb-3 pe-1 ps-1 rounded w-100" routerLinkActive="sidebar-link-active" routerLink="/rapport">
+      <img class="sidebar-link-icon" src="/assets/images/documentPictos/devis.svg" />
+      <p *ngIf="!minimize" class="ml-4 sidebar-link-title">Rapport</p>
+    </a>
+    <a class="sidebar-link pt-3 pb-3 pe-1 ps-1 rounded w-100" routerLinkActive="sidebar-link-active" routerLink="/gestion-des-roles">
+      <img class="sidebar-link-icon" src="/assets/images/users.png" />
+      <p *ngIf="!minimize" class="ml-4 sidebar-link-title">Gestion des rôles</p>
+    </a>
+    <a class="sidebar-link pt-3 pb-3 pe-1 ps-1 rounded w-100" routerLinkActive="sidebar-link-active" routerLink="/alertes-amf">
+      <img class="sidebar-link-icon" src="/assets/images/Bell.png" />
+      <p *ngIf="!minimize" class="ml-4 sidebar-link-title">Alertes AMF</p>
+    </a>
+    <a class="sidebar-link pt-3 pb-3 pe-1 ps-1 rounded w-100" routerLinkActive="sidebar-link-active" routerLink="/admin">
+      <img class="sidebar-link-icon" src="/assets/images/data.png" />
+      <p *ngIf="!minimize" class="ml-4 sidebar-link-title">Administration</p>
+    </a>
+  </div>
+</div>

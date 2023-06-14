@@ -1,0 +1,237 @@
+<h3>Fiches</h3>
+
+<div class="d-flex m-4 justify-content-center">
+  <button
+    role="link"
+    mat-stroked-button
+    color="primary"
+  >
+    <span class="d-flex align-items-center"
+      ><span>Ajouter une nouvelle fiche</span>
+      <i class="bi bi-plus-circle ms-2"></i>
+    </span>
+  </button>
+</div>
+
+<div class="d-flex w-100 justify-content-center">
+  <div class="w-50">
+    <input
+      type="text"
+      (keyup)="applyFilter($event)"
+      #input
+      class="form-control"
+      id="formGroupExampleInput2"
+      placeholder="Rechercher..."
+    />
+  </div>
+</div>
+
+<div class="d-flex justify-content-center m-4">
+  <div id="display-change" class="d-flex justify-content-center">
+    <button
+      mat-icon-button
+      matTooltip="Listes"
+      (click)="isList = true"
+      [color]="isList ? 'primary' : ''"
+    >
+      <mat-icon>list</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      matTooltip="Vignette"
+      (click)="isList = false"
+      [color]="!isList ? 'primary' : ''"
+    >
+      <mat-icon>grid_on</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div
+  class="animate__animated animate__slideInLeft container-fluid"
+  *ngIf="!isList"
+>
+  <div class="d-flex flex-row flex-wrap justify-content-center">
+    <mat-card
+      *ngFor="let fiche of dataSource.filteredData"
+      class="m-3 justify-content-between"
+      style="max-width: 250px; min-width: 300px"
+    >
+      <mat-card-header>
+        <mat-card-subtitle>22/05/2023</mat-card-subtitle>
+        <mat-card-title>{{ fiche.ref }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          <mat-chip>
+            {{ fiche.responsable }}
+          </mat-chip>
+        </p>
+
+        <p>
+          <span class="fw-bold">Date de finalisation</span> :
+          {{ fiche.finalisationDate | date : "dd/MM/YYYY" }}
+        </p>
+        <p><span class="fw-bold">Thème</span> : {{ fiche.theme }}</p>
+        <p><span class="fw-bold">Risques</span> : {{ fiche.risque }}</p>
+      </mat-card-content>
+      <mat-card-actions
+        class="justify-content-center d-flex flex-column align-items-center"
+      >
+        <div class="d-flex flex-row align-items-center flex-nowrap">
+          <button mat-button class="mt-2 mb-2" matTooltip="Compléter">
+            <div
+              class="d-flex flex-column justify-content-center"
+              style="font-size: 20px"
+            >
+              <i class="bi bi-pencil-square m-1"></i>
+            </div>
+          </button>
+          <button mat-button class="mt-2 mb-2" matTooltip="Détails">
+            <div
+              class="d-flex flex-column justify-content-center"
+              style="font-size: 20px"
+            >
+              <i class="bi bi-info-square m-1"></i>
+            </div>
+          </button>
+          <button mat-button class="mt-2 mb-2" matTooltip="Relire">
+            <div
+              class="d-flex flex-column justify-content-center"
+              style="font-size: 20px"
+            >
+              <i class="bi bi-book m-1"></i>
+            </div>
+          </button>
+          <button mat-button class="mt-2 mb-2" matTooltip="Réassigner">
+            <div
+              class="d-flex flex-column justify-content-center"
+              style="font-size: 20px"
+            >
+              <i class="bi bi-gear m-1"></i>
+            </div>
+          </button>
+          <button
+            matTooltip="Glisser vers le prochain trimestre"
+            class="d-flex flex-column justify-content-center"
+            style="font-size: 20px"
+            mat-button
+          >
+            <i class="bi bi-calendar2 m-1"></i>
+          </button>
+        </div>
+
+        <div class="w-100 d-flex justify-content-center p-2">
+          <button mat-stroked-button>
+            Accéder à la fiche vierge <i class="bi bi-box-arrow-up-right"></i>
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<div
+  class="animate__animated animate__slideInLeft container-fluid"
+  [ngStyle]="{ display: isList ? 'block' : 'none' }"
+>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="ref">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Référence</th>
+        <td mat-cell *matCellDef="let element" (click)="openRef = element.ref">
+          <div>{{ element.ref }}</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="responsable">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Responsable</th>
+        <td mat-cell *matCellDef="let element" (click)="openRef = element.ref">
+          <div *ngIf="openRef !== element.ref">{{ element.responsable }}</div>
+          <div *ngIf="openRef === element.ref">
+            <div role="button" class="menu-btn">
+              <i class="bi bi-pencil-square m-1"></i>
+              <span class="text-nowrap">Compléter</span>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="finalisation_date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Date de finalisation
+        </th>
+        <td mat-cell *matCellDef="let element" (click)="openRef = element.ref">
+          <div *ngIf="openRef !== element.ref">
+            {{ element.finalisationDate | date : "dd/MM/YYYY" }}
+          </div>
+          <div *ngIf="openRef === element.ref">
+            <div role="button" class="menu-btn">
+              <i class="bi bi-info-square m-1"></i>
+              <span>Détails</span>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="theme">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Thème</th>
+        <td mat-cell *matCellDef="let element" (click)="openRef = element.ref">
+          <div *ngIf="openRef !== element.ref">{{ element.theme }}</div>
+          <div *ngIf="openRef === element.ref">
+            <div role="button" class="menu-btn">
+              <i class="bi bi-book m-1"></i>
+              <span>Relire</span>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="risque">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Risques</th>
+        <td mat-cell *matCellDef="let element" (click)="openRef = element.ref">
+          <div *ngIf="openRef !== element.ref">{{ element.risque }}</div>
+          <div *ngIf="openRef === element.ref">
+            <div role="button" class="menu-btn">
+              <i class="bi bi-gear m-1"></i>
+              <span>Réassigner</span>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fiche_vierge">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fiche vierge</th>
+        <td mat-cell *matCellDef="let element" (click)="openRef = element.ref">
+          <button mat-stroked-button *ngIf="openRef !== element.ref">
+            <div class="d-flex flex-row flex-nowrap">
+              <span class="text-nowrap me-2">Fiche vierge</span
+              ><i class="bi bi-box-arrow-up-right"></i>
+            </div>
+          </button>
+          <div *ngIf="openRef === element.ref">
+            <div role="button" class="menu-btn">
+              <i class="bi bi-calendar2 m-1"></i>
+              <span>Glisser vers le prochain trimestre</span>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell p-4" colspan="4">
+          Pas de données à correspondant à la recherche "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+</div>

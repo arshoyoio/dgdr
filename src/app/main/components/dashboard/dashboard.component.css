@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+
+
+.box {
+    text-align: center;
+    /* box-shadow: 0 0 3px;
+    margin: 5px 25px;
+    padding: 5px; */
+}
+
+.box-title {
+    font-weight: 300;
+    font-size: 13px;
+    color: #676565;
+}
+
+/* .box-stat {
+    font-weight: 500;
+    font-size: 30px;
+    color: rgb(37, 37, 37);
+} */
+
+.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #33333c;
+}
+
+.fiche-number {
+    background-color: #DE350B;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.history .name {
+    color: #454984;
+}
+
+.btn-plan {
+    letter-spacing: 1px;
+    background-color: #454984;
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    /* padding: 8px 55px; */
+    width: 100%;
+}
+
+#chart {
+    max-width: 600px;
+    margin: 35px auto;
+  }

@@ -1,0 +1,9 @@
+.sidebar {
+  overflow-x: scroll;
+}
+
+.main-content {
+  min-height: calc(100vh - 130px);
+  /*margin-top: 75px;*/
+  background-color: white;
+}

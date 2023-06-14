@@ -1,0 +1,34 @@
+.logo-societe {
+    width: 100px;
+}
+
+.sidebar-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sidebar-link-icon {
+    width: 30px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.sidebar-link-title {
+    white-space: nowrap;
+    margin: 0;
+    margin-left: 20px;
+    padding: 0;
+    text-decoration: none !important;
+    color: #333;
+}
+
+.sidebar-link:hover {
+    background-color: #f2f2f2 !important;
+}
+
+.sidebar-link-active .sidebar-link-title {
+    color: #e0004c !important;
+}
