@@ -5,7 +5,7 @@
         <mat-card-content>
             <div class="d-flex justify-content-end">
                 <div class="me-2">
-                    <button mat-stroked-button color="primary" [matMenuTriggerFor]="menu">Générer le rapport trimestriel <i class="bi bi-chevron-compact-right"></i></button>
+                    <button mat-stroked-button color="primary" [matMenuTriggerFor]="menu"><i class="bi bi-calendar2-range me-2"></i>Générer le rapport trimestriel <i class="bi bi-chevron-compact-right"></i></button>
                     <mat-menu #menu="matMenu">
                         <button mat-menu-item>Word</button>
                         <button mat-menu-item>Excel</button>
@@ -13,14 +13,14 @@
                 </div>
                 <div class="me-2">
                     <button mat-stroked-button color="primary" matTooltip="Fichier PowerPoint">
-                        Générer le rapport annuel
+                        <i class="bi bi-filetype-pptx me-2"></i>Générer le rapport annuel
                     </button>
                 </div>
                 <div class="me-2">
-                    <button mat-stroked-button color="primary">Exporter le planning</button>
+                    <button mat-stroked-button color="primary"><i class="bi bi-upload me-2"></i> Exporter le planning</button>
                 </div>
                 <div>
-                    <button mat-stroked-button color="primary">Exporter le suivi de contrôle</button>
+                    <button mat-stroked-button color="primary"> <i class="bi bi-upload me-2"></i>Exporter le suivi de contrôle</button>
                 </div>
 
             </div>

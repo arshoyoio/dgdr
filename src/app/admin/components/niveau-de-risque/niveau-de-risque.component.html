@@ -34,7 +34,7 @@
   </div>
 </div>
 
-<div *ngIf="!isList">
+<div *ngIf="!isList" class="animate__animated animate__slideInLeft container-fluid">
   <div class="d-flex flex-row flex-wrap justify-content-center">
     <mat-card
       *ngFor="let theme of dataSource.filteredData"
@@ -71,7 +71,7 @@
     </mat-card>
   </div>
 </div>
-<div [ngStyle]="{display: isList ? 'block' : 'none'}">
+<div [ngStyle]="{display: isList ? 'block' : 'none'}" class="animate__animated animate__slideInLeft container-fluid">
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
       <ng-container matColumnDef="label">

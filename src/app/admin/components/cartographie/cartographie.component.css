@@ -1,0 +1,40 @@
+.left-border {
+    border: 1px solid lightgray;
+}
+
+.green {
+    background-color: rgb(157, 243, 157);
+}
+
+.greenf {
+    background-color: green;
+}
+
+.greenfm {
+    background-color: rgb(76, 197, 76);
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: rgb(46, 71, 231);
+}
+
+.bluem {
+    background-color: rgb(113, 130, 236);
+}
+
+.bluefm {
+    background-color: rgb(182, 190, 245);
+}
+
+.rede {
+    background-color: rgb(243, 147, 147);
+}
+
+.redfe {
+    background-color: rgb(227, 186, 186);
+}
+

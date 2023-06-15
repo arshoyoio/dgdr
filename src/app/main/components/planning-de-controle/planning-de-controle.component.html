@@ -1,0 +1,292 @@
+<h3>Planning de contrôle</h3>
+
+<div class="d-flex flex-row flex-wrap">
+  <div class="me-4">
+    <div>
+      <button mat-raised-button class="mb-4">
+        Générer nouveau planning pour le prochain trimestre
+      </button>
+      <p *ngIf="trimestre">
+        <span class="fw-bold">Trimèstre en cours :</span>
+        {{ trimestre.debut | date : "dd/MM/YYYY" }} -
+        {{ trimestre.fin | date : "dd/MM/YYYY" }}
+      </p>
+      <p *ngIf="daysLeft">
+        <span class="fw-bold">Jours restants avant la fin du trimestre :</span>
+        {{ daysLeft }}
+      </p>
+    </div>
+
+    <div class="d-flex flex-row mt-4">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Résponsable</mat-label>
+        <input
+          type="text"
+          placeholder="Résponsable"
+          aria-label="Number"
+          matInput
+          [formControl]="myControl"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field class="ms-2" appearance="outline">
+        <mat-label>Périodicités</mat-label>
+        <mat-select name="period" [(ngModel)]="period"
+          ><mat-option [value]="null"> Tous </mat-option>
+          <mat-option *ngFor="let p of periodicite" [value]="p">
+            {{ p }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="ms-4">
+    <div id="chart">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [dataLabels]="chartOptions.dataLabels"
+        [plotOptions]="chartOptions.plotOptions"
+        [xaxis]="chartOptions.xaxis"
+      ></apx-chart>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex flex-row flex-wrap">
+  <div class="example-container">
+    <h2>Non démarré</h2>
+
+    <div
+      cdkDropList
+      #notStarted="cdkDropList"
+      [cdkDropListData]="data.notStarted"
+      [cdkDropListConnectedTo]="[inProgress, onHold, broadcast, fixed]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        class="shadow-sm box-element item-box flex-column border m-1 p-2 rounded"
+        *ngFor="let item of data.notStarted"
+        [ngStyle]="{ display: ficheFilter(item) ? 'flex' : 'none' }"
+        cdkDrag
+      >
+        <div class="d-flex mb-2 flex-row" style="cursor: pointer">
+          <div class="me-2 text-bleu" matTooltip="Date de finalisation">
+            {{ item.finalisationDate | date : "dd/MM/YYYY" }}
+          </div>
+          <div class="me-2 text-secondary" matTooltip="Date de contrôle">
+            {{ item.controlDate | date : "dd/MM/YYYY" }}
+          </div>
+          <div class="me-2 text-muted" matTooltip="Date de validation">
+            {{ item.validationDate | date : "dd/MM/YYYY" }}
+          </div>
+        </div>
+        <div class="d-flex flex-row flex-nowrap align-items-center">
+          <div
+            class="rounded-circle border border-bleu border-2 d-flex align-items-center justify-content-center"
+            style="width: 50px; height: 50px; font-size: 18px"
+          >
+            {{ item.responsable | initialName }}
+          </div>
+          <span class="ms-3">{{ item.responsable }}</span>
+        </div>
+        <div class="me-2 mt-2 text-muted" matTooltip="Date de création">
+          Créé le : {{ item.createdAt | date : "dd/MM/YYYY" }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>En cours</h2>
+
+    <div
+      cdkDropList
+      #inProgress="cdkDropList"
+      [cdkDropListData]="data.inProgress"
+      [cdkDropListConnectedTo]="[onHold, broadcast, fixed, notStarted]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        class="shadow-sm box-element item-box flex-column border m-1 p-2 rounded"
+        *ngFor="let item of data.inProgress"
+        [ngStyle]="{ display: ficheFilter(item) ? 'flex' : 'none' }"
+        cdkDrag
+      >
+        <div class="d-flex mb-2 flex-row" style="cursor: pointer">
+          <div class="me-2 text-primary" matTooltip="Date de finalisation">
+            {{ item.finalisationDate | date : "dd/MM/YYYY" }}
+          </div>
+          <div class="me-2 text-secondary" matTooltip="Date de contrôle">
+            {{ item.controlDate | date : "dd/MM/YYYY" }}
+          </div>
+          <div class="me-2 text-muted" matTooltip="Date de validation">
+            {{ item.validationDate | date : "dd/MM/YYYY" }}
+          </div>
+        </div>
+        <div class="d-flex flex-row flex-nowrap align-items-center">
+          <div
+            class="rounded-circle border border-bleu border-2 d-flex align-items-center justify-content-center"
+            style="width: 50px; height: 50px; font-size: 18px"
+          >
+            {{ item.responsable | initialName }}
+          </div>
+          <span class="ms-3">{{ item.responsable }}</span>
+        </div>
+        <div class="me-2 mt-2 text-muted" matTooltip="Date de création">
+          Créé le : {{ item.createdAt | date : "dd/MM/YYYY" }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>En attente de relecture</h2>
+
+    <div
+      cdkDropList
+      #onHold="cdkDropList"
+      [cdkDropListData]="data.onHold"
+      [cdkDropListConnectedTo]="[inProgress, broadcast, fixed, notStarted]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        class="shadow-sm box-element item-box flex-column border m-1 p-2 rounded"
+        *ngFor="let item of data.onHold"
+        [ngStyle]="{ display: ficheFilter(item) ? 'flex' : 'none' }"
+        cdkDrag
+      >
+        <div class="d-flex mb-2 flex-row" style="cursor: pointer">
+          <div class="me-2 text-bleu" matTooltip="Date de finalisation">
+            {{ item.finalisationDate | date : "dd/MM/YYYY" }}
+          </div>
+          <div class="me-2 text-secondary" matTooltip="Date de contrôle">
+            {{ item.controlDate | date : "dd/MM/YYYY" }}
+          </div>
+          <div class="me-2 text-muted" matTooltip="Date de validation">
+            {{ item.validationDate | date : "dd/MM/YYYY" }}
+          </div>
+        </div>
+        <div class="d-flex flex-row flex-nowrap align-items-center">
+          <div
+            class="rounded-circle border border-bleu border-2 d-flex align-items-center justify-content-center"
+            style="width: 50px; height: 50px; font-size: 18px"
+          >
+            {{ item.responsable | initialName }}
+          </div>
+          <span class="ms-3">{{ item.responsable }}</span>
+        </div>
+        <div class="me-2 mt-2 text-muted" matTooltip="Date de création">
+          Créé le : {{ item.createdAt | date : "dd/MM/YYYY" }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Diffusé</h2>
+
+    <div
+      cdkDropList
+      #broadcast="cdkDropList"
+      [cdkDropListData]="data.broadcast"
+      [cdkDropListConnectedTo]="[inProgress, onHold, fixed, notStarted]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        class="shadow-sm box-element item-box flex-column border m-1 p-2 rounded"
+        *ngFor="let item of data.broadcast"
+        [ngStyle]="{ display: ficheFilter(item) ? 'flex' : 'none' }"
+        cdkDrag
+      >
+        <div class="d-flex mb-2 flex-row" style="cursor: pointer">
+          <div class="me-2 text-bleu" matTooltip="Date de finalisation">
+            {{ item.finalisationDate | date : "dd/MM/YYYY" }}
+          </div>
+          <div class="me-2 text-secondary" matTooltip="Date de contrôle">
+            {{ item.controlDate | date : "dd/MM/YYYY" }}
+          </div>
+          <div class="me-2 text-muted" matTooltip="Date de validation">
+            {{ item.validationDate | date : "dd/MM/YYYY" }}
+          </div>
+        </div>
+        <div class="d-flex flex-row flex-nowrap align-items-center">
+          <div
+            class="rounded-circle border border-bleu border-2 d-flex align-items-center justify-content-center"
+            style="width: 50px; height: 50px; font-size: 18px"
+          >
+            {{ item.responsable | initialName }}
+          </div>
+          <span class="ms-3">{{ item.responsable }}</span>
+        </div>
+        <div class="me-2 mt-2 text-muted" matTooltip="Date de création">
+          Créé le : {{ item.createdAt | date : "dd/MM/YYYY" }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Figé</h2>
+
+    <div
+      cdkDropList
+      #fixed="cdkDropList"
+      [cdkDropListData]="data.fixed"
+      [cdkDropListConnectedTo]="[
+        inProgress,
+        onHold,
+        broadcast,
+        fixed,
+        notStarted
+      ]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        class="shadow-sm box-element item-box flex-column border m-1 p-2 rounded"
+        *ngFor="let item of data.fixed"
+        [ngStyle]="{ display: ficheFilter(item) ? 'flex' : 'none' }"
+        cdkDrag
+      >
+        <div class="d-flex mb-2 flex-row" style="cursor: pointer">
+          <div class="me-2 text-bleu" matTooltip="Date de finalisation">
+            {{ item.finalisationDate | date : "dd/MM/YYYY" }}
+          </div>
+          <div class="me-2 text-secondary" matTooltip="Date de contrôle">
+            {{ item.controlDate | date : "dd/MM/YYYY" }}
+          </div>
+          <div class="me-2 text-muted" matTooltip="Date de validation">
+            {{ item.validationDate | date : "dd/MM/YYYY" }}
+          </div>
+        </div>
+        <div class="d-flex flex-row flex-nowrap align-items-center">
+          <div
+            class="rounded-circle border border-bleu border-2 d-flex align-items-center justify-content-center"
+            style="width: 50px; height: 50px; font-size: 18px"
+          >
+            {{ item.responsable | initialName }}
+          </div>
+          <span class="ms-3">{{ item.responsable }}</span>
+        </div>
+        <div class="me-2 mt-2 text-muted" matTooltip="Date de création">
+          Créé le : {{ item.createdAt | date : "dd/MM/YYYY" }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

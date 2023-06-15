@@ -1,0 +1,16 @@
+<h2 class="m-4">Ajouter des privilèges</h2>
+<div
+  class="m-4 d-flex flex-column"
+  style="max-height: 70vh; overflow-y: scroll"
+>
+  <mat-checkbox
+    color="primary"
+    *ngFor="let p of privileges"
+    [checked]="p.checked"
+    >{{ p.name }}</mat-checkbox
+  >
+</div>
+<div class="d-flex flex-row m-4">
+  <button (click)="close(true)" mat-raised-button color="primary">Enregistrer</button>
+  <button (click)="close()" class="ms-3" mat-button>Annuler</button>
+</div>

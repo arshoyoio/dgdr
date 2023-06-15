@@ -4,6 +4,7 @@ import { Label, MultiDataSet } from 'ng2-charts'; */
 import { LAST_HISTORY } from '../../services/fake-data/history';
 import { ChartComponent, ApexAxisChartSeries, ApexChart, ApexXAxis, ApexTitleSubtitle, ApexStroke, ApexDataLabels, ApexResponsive, ApexNonAxisChartSeries } from 'ng-apexcharts';
 import { Router } from '@angular/router';
+import { ROLES } from '../../constants/roles';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -33,6 +34,8 @@ export class DashboardComponent implements OnInit {
 
   idsFiche: any[] = [];
   isAdmin: boolean = false;
+  roles = ROLES;
+  role: string = '';
 
   constructor(private router: Router) {
     this.idsFiche = this.history.map((f) => f.fiche);
@@ -49,8 +52,8 @@ export class DashboardComponent implements OnInit {
         }
       ],
       chart: {
-        height: 280,
-        width: 650,
+        height: 300,
+        width: 800,
         type: "area"
       },
       title: {
@@ -90,7 +93,7 @@ export class DashboardComponent implements OnInit {
       ],
       chart: {
         height: 250,
-        width: 300,
+        width: 600,
         type: "bar"
       },
       xaxis: {
@@ -108,7 +111,7 @@ export class DashboardComponent implements OnInit {
       ],
       chart: {
         height: 250,
-        width: 300,
+        width: 600,
         type: "bar"
       },
       xaxis: {
@@ -120,7 +123,7 @@ export class DashboardComponent implements OnInit {
     this.chartOptionPie = {
       seriesP: [44, 55, 13, 43],
       chart: {
-        width: 350,
+        width: 420,
         type: "pie"
       },
       labels: ["Admin", "RCCI", "Manager", "Junior"],
@@ -129,7 +132,7 @@ export class DashboardComponent implements OnInit {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200
+              width: 420
             },
             legend: {
               position: "bottom"

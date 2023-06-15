@@ -6,6 +6,7 @@ import { FichesViergesComponent } from './components/fiches-vierges/fiches-vierg
 import { NouveauFicheViergeComponent } from './components/nouveau-fiche-vierge/nouveau-fiche-vierge.component';
 import { RapportsComponent } from './components/rapports/rapports.component';
 import { FichesComponent } from './components/fiches/fiches.component';
+import { PlanningDeControleComponent } from './components/planning-de-controle/planning-de-controle.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'fiches-vierges',
         component: FichesViergesComponent,
+      },
+      {
+        path: 'planning-de-controle',
+        component: PlanningDeControleComponent,
       },
       {
         path: 'fiches',

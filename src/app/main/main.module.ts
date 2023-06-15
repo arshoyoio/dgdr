@@ -14,6 +14,10 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { NouveauFicheViergeComponent } from './components/nouveau-fiche-vierge/nouveau-fiche-vierge.component';
 import { RapportsComponent } from './components/rapports/rapports.component';
 import { FichesComponent } from './components/fiches/fiches.component';
+import { PlanningDeControleComponent } from './components/planning-de-controle/planning-de-controle.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,11 +28,15 @@ import { FichesComponent } from './components/fiches/fiches.component';
     FichesViergesComponent,
     NouveauFicheViergeComponent,
     RapportsComponent,
-    FichesComponent
+    FichesComponent,
+    PlanningDeControleComponent
   ],
   imports: [
     MaterialModule,
     NgChartsModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     MainRouting,
     NgApexchartsModule
