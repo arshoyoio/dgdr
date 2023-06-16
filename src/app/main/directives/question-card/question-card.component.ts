@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { QUESTIONNAIRE_STATUS, QUESTIONNAIRE_STATUS_COLOR, QUESTIONNAIRE_STATUS_ICON_CLASS } from '~/main/constants/questionnaire-status';
-import { QUESTIONNAIRES } from '~/main/services/fake-data/questionnaires';
+import { QUESTIONNAIRE_STATUS, QUESTIONNAIRE_STATUS_COLOR, QUESTIONNAIRE_STATUS_ICON_CLASS } from '../../../main/constants/questionnaire-status';
+import { QUESTIONNAIRES } from '../../../main/services/fake-data/questionnaires';
 
 @Component({
   selector: 'app-question-card',
