@@ -1,8 +1,8 @@
 <div class="w-100 shadow-sm d-flex p-3 flex-row justify-content-between">
-  <button mat-button (click)="back()" style="color: #3f51b5; font-size: 20px;"><i class="bi bi-chevron-left"></i></button>
+  <button mat-button (click)="back()" style="color: #3f51b5; font-size: 25px;"><i class="bi bi-arrow-left-circle-fill"></i></button>
   <div class="d-flex flex-row flex-nowrap">
     <div class="me-4" [matMenuTriggerFor]="notifs">
-      <img [src]="'/assets/images/Bell.png'" style="height: 38px" />
+      <img [src]="'assets/images/Bell.png'" style="height: 38px" />
     </div>
 
     <mat-menu #notifs="matMenu"> </mat-menu>
@@ -10,7 +10,7 @@
     <div>
       <img
         [matMenuTriggerFor]="menu"
-        [src]="'/assets/images/iconUser.png'"
+        [src]="'assets/images/iconUser.png'"
         style="height: 38px"
       />
       <mat-menu #menu="matMenu">

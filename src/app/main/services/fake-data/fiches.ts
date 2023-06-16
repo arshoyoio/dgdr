@@ -15,6 +15,8 @@ export const FICHES: Fiches[] = [
     responsable: 'RCCI',
     risque: "Risques liés à la gouvernance et à l'actionnariat",
     theme: 'Organisation de la SGP',
+    readBy:'John Cena',
+    validatedBy: 'Markovich Phill',
   },
   {
     createdAt: "Sun Oct 16 2022 02:30:40 GMT+0300 (heure normale d’Afrique de l’Est)",
@@ -29,6 +31,8 @@ export const FICHES: Fiches[] = [
     responsable: 'RCCI',
     risque: 'Risques liés aux moyens humains de la SGP',
     theme: 'Organisation de la SGP',
+    readBy:'Youna Malekk',
+    validatedBy: 'Simon Dorton',
   },
 
   {
@@ -47,6 +51,8 @@ export const FICHES: Fiches[] = [
     risque: 'Accusantium eius explicabo molestiae ad quos quaerat.',
     theme:
       'Aut voluptas illum.Voluptas quibusdam ipsum eos et quia maiores et iusto asperiores.',
+    readBy:'Magali Fieve',
+    validatedBy: 'André Dust',
   },
 
   {
@@ -64,6 +70,8 @@ export const FICHES: Fiches[] = [
     responsable: 'Raven Haley',
     risque: 'Aliquid est occaecati natus.',
     theme: 'Recusandae eaque qui sapiente et.',
+    readBy:'John Ethan',
+    validatedBy: 'Callum Alexander',
   },
   {
     createdAt: "Thu Aug 25 2022 21:59:35 GMT+0300 (heure normale d’Afrique de l’Est)",
@@ -80,6 +88,8 @@ export const FICHES: Fiches[] = [
     responsable: 'Clay Greenholt',
     risque: 'Possimus porro doloremque expedita blanditiis sapiente.',
     theme: 'Beatae ab quaerat iste velit perspiciatis qui iure aut molestiae.',
+    readBy:'Charles Connor',
+    validatedBy: 'Charlie Daniel',
   },
   {
     createdAt: "Tue Sep 27 2022 12:12:41 GMT+0300 (heure normale d’Afrique de l’Est)",
@@ -95,6 +105,8 @@ export const FICHES: Fiches[] = [
     risque: 'Labore consequatur exercitationem est ad.',
     theme:
       'Recusandae sit nobis distinctio excepturi autem debitis non omnis vero.',
+    readBy:'David Harry',
+    validatedBy: 'Jacob Jake',
   },
   {
     createdAt: "Mon Jan 30 2023 00:09:10 GMT+0300 (heure normale d’Afrique de l’Est)",
@@ -111,6 +123,8 @@ export const FICHES: Fiches[] = [
     responsable: 'Albert Tremblay',
     risque: 'Et qui aut enim aliquam.',
     theme: 'Nam velit distinctio tempore itaque itaque ipsam aut.',
+    readBy:'James Mason',
+    validatedBy: 'Jayden Kyle',
   },
   {
     createdAt: "Thu Mar 16 2023 10:01:47 GMT+0300 (heure normale d’Afrique de l’Est)",
@@ -123,6 +137,8 @@ export const FICHES: Fiches[] = [
     responsable: 'Karina Hettinger',
     risque: 'Ut sunt tempora in laboriosam.',
     theme: 'Adipisci quaerat sint et sint rerum corporis numquam eos.',
+    readBy:'Liam Joe',
+    validatedBy: 'Noah Joseph',
   },
   {
     createdAt: "Sat Nov 05 2022 07:14:26 GMT+0300 (heure normale d’Afrique de l’Est)",
@@ -135,6 +151,8 @@ export const FICHES: Fiches[] = [
     responsable: 'Daren Paucek',
     risque: 'Omnis mollitia fugit.',
     theme: 'Similique sunt illo adipisci ex sed.',
+    readBy:'Oscar Brown',
+    validatedBy: 'Thomas Byrne',
   },
   {
     createdAt: "Sun May 07 2023 07:48:06 GMT+0300 (heure normale d’Afrique de l’Est)",
@@ -151,6 +169,8 @@ export const FICHES: Fiches[] = [
     responsable: 'Destiney Parker',
     risque: 'Distinctio adipisci earum veritatis porro vero.',
     theme: 'Adipisci non autem consequatur.',
+    readBy:'Evans Cooper',
+    validatedBy: 'Hall Jackson',
   },
   {
     createdAt: "Fri Feb 10 2023 20:55:31 GMT+0300 (heure normale d’Afrique de l’Est)",
@@ -167,6 +187,8 @@ export const FICHES: Fiches[] = [
     responsable: 'Emely Marks',
     risque: 'Magnam tempora corrupti enim ipsa.',
     theme: 'In et sed error.',
+    readBy:'Huges Lopez',
+    validatedBy: 'Lee Morton',
   },
   {
     createdAt: "Wed Mar 01 2023 00:30:54 GMT+0300 (heure normale d’Afrique de l’Est)",
@@ -183,6 +205,8 @@ export const FICHES: Fiches[] = [
     responsable: 'Haskell Cormier',
     risque: 'Est quibusdam omnis sequi voluptatem temporibus.',
     theme: 'Ut quia id.',
+    readBy:'Roy Smith',
+    validatedBy: 'Perez Williams',
   },
   {
     createdAt: "Wed Apr 19 2023 07:07:03 GMT+0300 (heure normale d’Afrique de l’Est)",
@@ -199,6 +223,8 @@ export const FICHES: Fiches[] = [
     responsable: 'Deven Walker',
     risque: 'Vel esse dolor praesentium ad architecto quibusdam.',
     theme: 'Quis voluptate tempore quis similique suscipit.',
+    readBy:'Olivia Victoria',
+    validatedBy: 'Barbara Abigael',
   },
   {
     createdAt: "Fri May 19 2023 04:44:23 GMT+0300 (heure normale d’Afrique de l’Est)",
@@ -215,5 +241,7 @@ export const FICHES: Fiches[] = [
     responsable: 'Bradley Hermann',
     risque: 'Provident doloremque quidem soluta ut repellat.',
     theme: 'Non quam fugiat neque officia.',
+    readBy:'Anne Marie',
+    validatedBy: 'Cyrus Gadot',
   },
 ];

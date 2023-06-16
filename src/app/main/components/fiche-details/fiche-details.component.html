@@ -1,0 +1,177 @@
+<div style="min-width: 419px">
+  <mat-card style="background-color: #f2f2f2">
+    <mat-card-content>
+      <div class="d-flex flex-row flex-nowrap justify-content-between mb-4">
+        <div class="d-flex flex-column h-100">
+          <div class="text-muted d-flex mb-2 align-items-center">
+            <i class="bi bi-person-fill-slash me-2" style="font-size: 20px"></i
+            ><span>Non assigné</span>
+          </div>
+          <div>
+            <h2>
+              Questionnaire de référence AFG/AF2i - OPC - Janvier 2022 - BNP AM
+            </h2>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column">
+          <div class="d-flex m-1 flex-row align-items-center">
+            <div
+              class="me-2 rounded-circle bg-warning text-white d-flex align-items-center justify-content-center"
+              style="width: 40px; height: 40px; font-size: 15px"
+            >
+              {{ "Jude Bellingham" | initialName }}
+            </div>
+            <div>
+              <div class="progress" style="width: 200px; height: 15px">
+                <div
+                  class="progress-bar bg-success"
+                  role="progressbar"
+                  style="width: 25%"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  25%
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex m-1 flex-row align-items-center">
+            <div
+              class="me-2 rounded-circle bg-info text-white d-flex align-items-center justify-content-center"
+              style="width: 40px; height: 40px; font-size: 15px"
+            >
+              {{ "Kyke Walker" | initialName }}
+            </div>
+            <div>
+              <div class="progress" style="width: 200px; height: 15px">
+                <div
+                  class="progress-bar bg-success"
+                  role="progressbar"
+                  style="width: 25%"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  25%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex flex-row flex-wrap">
+        <p class="me-4 text-muted">
+          <i class="bi bi-git me-1"></i>
+          <span class="fw-light"
+            >Questionnaire de référence AFG/AF2i - OPC - Janvier 2022 - BNP
+            AM</span
+          >
+        </p>
+        <p class="me-4 text-muted">
+          <i class="bi bi-person me-1"></i>
+          <span class="fw-light">AFG</span>
+        </p>
+        <p class="me-4 text-muted">
+          <i class="bi bi-calendar-event me-1"></i>
+          <span class="fw-bold">351 jours de retard</span>
+        </p>
+        <p class="me-4 text-muted">
+          <i class="bi bi-file-earmark me-1"></i>
+          <span class="fw-light">Word</span>
+        </p>
+        <p class="me-4 text-muted">
+          <i class="bi bi-person-badge me-1"></i>
+          <span class="fw-light">Admin société de gestion</span>
+        </p>
+        <p class="me-4 text-muted">
+          <i class="bi bi-hourglass-bottom me-1"></i>
+          <span class="text-warning fw-bold">5/28 Questions répondues</span>
+        </p>
+      </div>
+
+      <div class="d-flex flex-row align-items-center">
+        <i class="bi bi-tags me-4" style="font-size: 20px"></i>
+        <mat-chip-listbox class="me-4" aria-label="Dog selection">
+          <mat-chip> Audits </mat-chip>
+          <mat-chip color="primary"> Audit </mat-chip>
+          <mat-chip color="accent"> Société </mat-chip>
+          <mat-chip color="accent"> Ripple </mat-chip>
+        </mat-chip-listbox>
+        <div class="progress" style="width: 350px; height: 30px">
+          <div
+            class="progress-bar bg-success"
+            role="progressbar"
+            style="width: 25%"
+            aria-valuenow="38"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            38.78%
+          </div>
+        </div>
+      </div>
+
+      <div class="m-3 ms-0">
+        <mat-checkbox color="primary"
+          >Afficher uniquement les questions non répondues</mat-checkbox
+        >
+      </div>
+
+      <div class="d-flex flex-row">
+        <button mat-flat-button color="primary" class="m-2">
+          <i class="bi bi-check-circle me-2"></i> Valider
+        </button>
+        <button mat-stroked-button color="primary" class="m-2">
+          <i class="bi bi-book me-2"></i> Marquer comme relue
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="m-4 ms-0 me-0">
+    <mat-tab-group>
+      <mat-tab label="I – Carte d’identité du fonds/ de la stratégie">
+        <app-question-card></app-question-card>
+      </mat-tab>
+      <mat-tab label="II - Encours sous Gestion">
+        <app-question-card></app-question-card
+      ></mat-tab>
+      <mat-tab label="III - Équipe de gestion du fonds">
+        <div class="m-0 mt-4 bg-white shadow-lg">
+          <mat-tab-group>
+            <mat-tab
+              label="A - Description de la société
+                  "
+            >
+              <app-question-card></app-question-card
+            ></mat-tab>
+            <mat-tab
+              label="B - Gouvernance / Structure du capital de la société / Données financières"
+            >
+              <app-question-card></app-question-card
+            ></mat-tab>
+            <mat-tab label="C - Encours sous gestion">
+              <app-question-card></app-question-card
+            ></mat-tab>
+            <mat-tab label="D - Ressources humaines"></mat-tab>
+          </mat-tab-group></div
+      ></mat-tab>
+      <mat-tab label=" IV - Construction de portefeuille">
+        <app-question-card></app-question-card
+      ></mat-tab>
+      <mat-tab
+        label="V - Processus d’investissement et de construction de portefeuille"
+      >
+      </mat-tab>
+      <mat-tab label=" VII - Gestion et contrôle des risques">
+        <app-question-card></app-question-card
+      ></mat-tab>
+      <mat-tab label="VIII - Informations générales sur la société ">
+        <app-question-card></app-question-card
+      ></mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

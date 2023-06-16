@@ -10,6 +10,8 @@ export interface Fiches {
   createdAt: string;
   archive: boolean;
   status: string;
+  readBy: string;
+  validatedBy: string;
 }
 
 export interface FichesByStatus {

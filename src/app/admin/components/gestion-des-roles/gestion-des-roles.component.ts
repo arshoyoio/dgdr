@@ -5,7 +5,7 @@ import { MatSort, } from '@angular/material/sort';
 import { MatTableDataSource,  } from '@angular/material/table';
 import Swal from 'sweetalert2';
 import { AddPrivilegesComponent } from '../../directives/add-privileges/add-privileges.component';
-import { ROLES } from 'src/app/main/services/fake-data/roles';
+import { ROLES } from '~/main/services/fake-data/roles';
 
 export interface UserData {
   id: string;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { PRIVILEGES } from 'src/app/main/services/fake-data/privileges';
+import { PRIVILEGES } from '~/main/services/fake-data/privileges';
 import Swal from 'sweetalert2';
 
 @Component({

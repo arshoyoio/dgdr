@@ -18,6 +18,8 @@ import { PlanningDeControleComponent } from './components/planning-de-controle/p
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { FicheDetailsComponent } from './components/fiche-details/fiche-details.component';
+import { QuestionCardComponent } from './directives/question-card/question-card.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { SharedModule } from '../shared/shared.module';
     NouveauFicheViergeComponent,
     RapportsComponent,
     FichesComponent,
-    PlanningDeControleComponent
+    PlanningDeControleComponent,
+    FicheDetailsComponent,
+    QuestionCardComponent
   ],
   imports: [
     MaterialModule,

@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { THEMES } from 'src/app/main/services/fake-data/theme';
+import { THEMES } from '~/main/services/fake-data/theme';
 
 @Component({
   selector: 'app-theme',

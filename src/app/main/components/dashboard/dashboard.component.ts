@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 /* import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label, MultiDataSet } from 'ng2-charts'; */
 import { LAST_HISTORY } from '../../services/fake-data/history';
-import { ChartComponent, ApexAxisChartSeries, ApexChart, ApexXAxis, ApexTitleSubtitle, ApexStroke, ApexDataLabels, ApexResponsive, ApexNonAxisChartSeries } from 'ng-apexcharts';
+import { ChartComponent, ApexAxisChartSeries, ApexChart, ApexXAxis, ApexTitleSubtitle, ApexStroke, ApexDataLabels, ApexResponsive, ApexNonAxisChartSeries, ApexLegend, ApexPlotOptions, ApexFill } from 'ng-apexcharts';
 import { Router } from '@angular/router';
 import { ROLES } from '../../constants/roles';
+import { THEMES } from '../../services/fake-data/theme';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -16,6 +17,9 @@ export type ChartOptions = {
   dataLabels: ApexDataLabels;
   responsive: ApexResponsive[];
   labels: any;
+  legend: ApexLegend;
+  plotOptions: ApexPlotOptions;
+  fill: ApexFill
 };
 
 @Component({
@@ -32,63 +36,63 @@ export class DashboardComponent implements OnInit {
   chartOptionsR: Partial<ChartOptions>;
   chartOptionPie: Partial<ChartOptions>;
 
-  idsFiche: any[] = [];
+  // idsFiche: any[] = [];
   isAdmin: boolean = false;
   roles = ROLES;
   role: string = '';
+  theme: any[] = THEMES;
+  themeClasses: any[] = [];
 
   constructor(private router: Router) {
-    this.idsFiche = this.history.map((f) => f.fiche);
+    // this.idsFiche = this.history.map((f) => f.fiche);
+    this.themeClasses = this.theme.map((c) => c.classe);
 
     this.chartOptionsMultiple = {
       series: [
         {
-          name: "Thème",
-          data: [10, 2, 28, 7, 36, 45, 11]
+          name: "Risque",
+          data: [2, 5, 18, 42, 33, 7, 28, 51, 12]
         },
         {
-          name: "Risque",
-          data: [11, 32, 45, 32, 34, 52, 41]
+          name: "Fiches",
+          data: [0, 9, 2, 25, 0, 12, 6, 37, 8]
         }
       ],
       chart: {
-        height: 300,
-        width: 800,
-        type: "area"
+        type: "bar",
+        height: 350,
+        width: 600
       },
-      title: {
-        text: "Fiche par thème et risque"
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: "100%",
+          // endingShape: "rounded",
+          borderRadius: 5,
+        }
       },
       dataLabels: {
         enabled: false
       },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ],
       stroke: {
-        curve: "smooth"
+        show: true,
+        width: 2,
+        colors: ["transparent"]
       },
       xaxis: {
-        categories: this.idsFiche
+        categories: this.themeClasses
       },
-    }
+      fill: {
+        opacity: 1
+      },
+    };
 
     // Graphe par Thème
     this.chartOptionsT = {
       series: [
         {
           name: "Nombre fiche",
-          data: [10, 13, 8, 1, 30, 18, 5]
+          data: [10, 13, 8, 1, 30, 18, 5, 12, 4, 0]
         }
       ],
       chart: {
@@ -97,7 +101,7 @@ export class DashboardComponent implements OnInit {
         type: "bar"
       },
       xaxis: {
-        categories: ["A", "B",  "C",  "D",  "E",  "F",  "G"]
+        categories: this.themeClasses
       }
     };
 

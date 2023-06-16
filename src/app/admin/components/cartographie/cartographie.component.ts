@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { THEMES } from 'src/app/main/services/fake-data/theme';
+import { THEMES } from '~/main/services/fake-data/theme';
 
 @Component({
   selector: 'app-cartographie',

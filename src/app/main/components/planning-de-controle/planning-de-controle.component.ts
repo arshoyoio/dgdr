@@ -14,6 +14,7 @@ import { Fiches, FichesByStatus } from '../../models/fiches';
 import { STATUTS } from '../../constants/statuts';
 import { ChartComponent } from 'ng-apexcharts';
 import { ChartOptions } from '../../models/custom-chart-options';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-planning-de-controle',
@@ -42,7 +43,7 @@ export class PlanningDeControleComponent implements OnInit {
     fixed: [],
   };
 
-  constructor(private readonly toolsService: ToolsService) {
+  constructor(private readonly toolsService: ToolsService, private router: Router) {
     const responsables = FICHES.map((el) => el.responsable);
     const uniqueValues = [...new Set(responsables)];
     const result = uniqueValues.map((val) => val);
@@ -85,6 +86,10 @@ export class PlanningDeControleComponent implements OnInit {
     );
 
     this.initChartData();
+  }
+
+  details(id: string) {
+    this.router.navigateByUrl(`/fiche/${id}/details`);
   }
 
   initChartData() {

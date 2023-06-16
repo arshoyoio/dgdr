@@ -44,7 +44,7 @@ export const LAST_HISTORY = [
         "status": "validé",
         "user": "ROMEO Santos",
         "date": "07/06/2023",
-        "theme": "B",
+        "theme": "I",
         "risque": "élevée"
     },
     {
@@ -116,7 +116,7 @@ export const LAST_HISTORY = [
         "status": "controlé",
         "user": "JULES Pagny",
         "date": "07/06/2023",
-        "theme": "B",
+        "theme": "G",
         "risque": "élevée"
     }
 ]

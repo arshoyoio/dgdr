@@ -63,7 +63,7 @@
   </div>
 </div>
 
-<div class="d-flex flex-row flex-wrap">
+<div class="d-flex flex-row flex-wrap mb-4">
   <div class="example-container">
     <h2>Non démarré</h2>
 
@@ -76,6 +76,8 @@
       (cdkDropListDropped)="drop($event)"
     >
       <div
+        role="button"
+        (click)="details('example')"
         class="shadow-sm box-element item-box flex-column border m-1 p-2 rounded"
         *ngFor="let item of data.notStarted"
         [ngStyle]="{ display: ficheFilter(item) ? 'flex' : 'none' }"
@@ -120,13 +122,15 @@
       (cdkDropListDropped)="drop($event)"
     >
       <div
+        role="button"
+        (click)="details('example')"
         class="shadow-sm box-element item-box flex-column border m-1 p-2 rounded"
         *ngFor="let item of data.inProgress"
         [ngStyle]="{ display: ficheFilter(item) ? 'flex' : 'none' }"
         cdkDrag
       >
         <div class="d-flex mb-2 flex-row" style="cursor: pointer">
-          <div class="me-2 text-primary" matTooltip="Date de finalisation">
+          <div class="me-2 text-bleu" matTooltip="Date de finalisation">
             {{ item.finalisationDate | date : "dd/MM/YYYY" }}
           </div>
           <div class="me-2 text-secondary" matTooltip="Date de contrôle">
@@ -164,6 +168,8 @@
       (cdkDropListDropped)="drop($event)"
     >
       <div
+        role="button"
+        (click)="details('example')"
         class="shadow-sm box-element item-box flex-column border m-1 p-2 rounded"
         *ngFor="let item of data.onHold"
         [ngStyle]="{ display: ficheFilter(item) ? 'flex' : 'none' }"
@@ -208,6 +214,8 @@
       (cdkDropListDropped)="drop($event)"
     >
       <div
+        role="button"
+        (click)="details('example')"
         class="shadow-sm box-element item-box flex-column border m-1 p-2 rounded"
         *ngFor="let item of data.broadcast"
         [ngStyle]="{ display: ficheFilter(item) ? 'flex' : 'none' }"
@@ -236,6 +244,17 @@
         <div class="me-2 mt-2 text-muted" matTooltip="Date de création">
           Créé le : {{ item.createdAt | date : "dd/MM/YYYY" }}
         </div>
+
+        <div class="d-flex flex-row flex-nowrap justify-content-end">
+          <span class="mt-1 text-secondary" style="font-size: 11px;">Relecteur : </span>
+          <div
+            class="rounded-circle border border-warning bg-warning text-light border-2 d-flex align-items-center justify-content-center ms-2"
+            style="width: 30px; height: 30px; font-size: 12px" [matTooltip]="item.readBy"
+          >
+            {{ item.readBy | initialName }}
+          </div>
+          
+        </div>
       </div>
     </div>
   </div>
@@ -258,6 +277,8 @@
       (cdkDropListDropped)="drop($event)"
     >
       <div
+        role="button"
+        (click)="details('example')"
         class="shadow-sm box-element item-box flex-column border m-1 p-2 rounded"
         *ngFor="let item of data.fixed"
         [ngStyle]="{ display: ficheFilter(item) ? 'flex' : 'none' }"
@@ -285,6 +306,17 @@
         </div>
         <div class="me-2 mt-2 text-muted" matTooltip="Date de création">
           Créé le : {{ item.createdAt | date : "dd/MM/YYYY" }}
+        </div>
+
+        <div class="d-flex flex-row flex-nowrap justify-content-end">
+          <span class="mt-1 text-secondary" style="font-size: 11px;">Validé par : </span>
+          <div
+            class="rounded-circle border border-success border-2 bg-success text-light d-flex align-items-center justify-content-center ms-2"
+            style="width: 30px; height: 30px; font-size: 12px" [matTooltip]="item.validatedBy"
+          >
+            {{ item.validatedBy | initialName }}
+          </div>
+          
         </div>
       </div>
     </div>
