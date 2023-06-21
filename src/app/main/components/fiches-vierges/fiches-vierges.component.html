@@ -1,9 +1,9 @@
-<h3>Fiches vierges</h3>
+<h3>Cartographie des risques</h3>
 
 <div class="d-flex m-4 justify-content-center">
   <button role="link" routerLink="/documents/add" mat-stroked-button color="primary">
     <span class="d-flex align-items-center"
-      ><span>Ajouter une nouvelle fiche vierge</span>
+      ><span>Ajouter une nouvelle ligne</span>
       <i class="bi bi-plus-circle ms-2"></i>
     </span>
   </button>
@@ -67,7 +67,7 @@
       </mat-card-content>
       <mat-card-actions class="justify-content-center">
         <div class="d-flex flex-row align-items-center flex-nowrap border-top">
-          <button mat-button *ngIf="!fiche.created" class="mt-2 mb-2">
+          <button mat-button (click)="createFiche()" matTooltip="Créer une instance" *ngIf="!fiche.created" class="mt-2 mb-2">
             <div
               class="d-flex flex-column justify-content-center"
               style="font-size: 20px"
@@ -135,9 +135,9 @@
         <td mat-cell *matCellDef="let element" (click)="openRef = element.ref">
           <div *ngIf="openRef !== element.ref">{{ element.responsable }}</div>
           <div *ngIf="openRef === element.ref">
-            <div *ngIf="!element.created" role="button" class="menu-btn">
+            <div (click)="createFiche()" *ngIf="!element.created" role="button" class="menu-btn">
               <i class="bi bi-file-earmark-plus m-1"></i>
-              <span>Créer une fiche</span>
+              <span>Créer une instance</span>
             </div>
             <div *ngIf="element.created" role="button" class="menu-btn">
               <i class="bi bi-eye m-1"></i>

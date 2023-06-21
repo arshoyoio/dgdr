@@ -1,31 +1,29 @@
-<div style="background-color: rgb(248, 249, 250);" class="d-flex p-2 flex-column ms-0 me-0 m-4">
+<div style="background-color: rgb(248, 249, 250);" *ngIf="questions" class="d-flex p-2 flex-column ms-0 me-0 m-4">
     <mat-card class="mb-4" *ngFor="let q of questions">
       <mat-card-content>
-        <div class="m-0 d-flex justify-content-between">
-          <p class="mb-3" style="font-size: 15px;">
-            <i [class]="['bi', color[q.statut], icon[q.statut]]"></i>
-            <span [class]="['ms-2', color[q.statut]]">{{ statuts[q.statut] }}</span>
-          </p>
-
+        <div class="m-0 d-flex justify-content-end">
           <div
+            *ngIf="respName"
             class="me-2 rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
             style="width: 40px; height: 40px; font-size: 15px"
           >
-            {{ "Mo Salah" | initialName }}
+            {{ respName | initialName }}
           </div>
         </div>
         <h2 class="mb-2">
           {{q.name}}
         </h2>
-        <mat-checkbox color="primary">N/A</mat-checkbox>
+        <!-- <mat-checkbox color="primary">N/A</mat-checkbox> -->
         <mat-form-field class="w-100">
-          <mat-label>Réponse du département managment ici</mat-label>
+          <mat-label>{{q.name}}</mat-label>
           <textarea
+            [name]="q.name"
+            [(ngModel)]="fiche[q.field]"
             matInput
-            placeholder="Ex. It makes me feel..."
+            [placeholder]="q.name"
           ></textarea>
         </mat-form-field>
-        <div class="w-100 d-flex flex-row justify-content-end">
+        <!-- <div class="w-100 d-flex flex-row justify-content-end">
           <p class="link-to text-muted align-middle">
             <i class="bi bi-search me-1"></i> Recherche de questions
             similaires
@@ -33,7 +31,7 @@
           <p class="link-to ms-4 text-muted align-middle">
             <i class="bi bi-clipboard me-1"></i> Copier
           </p>
-        </div>
+        </div> -->
         <div class="d-flex flex-row flex-nowrap">
           <button class="m-2" mat-button color="primary">
             Révisions

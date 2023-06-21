@@ -1,8 +1,8 @@
 .example-container {
   min-width: 250px;
   font-size: 14px;
-  max-width: 300px;
-  margin: 40px 25px 25px 0;
+  max-width: 100%;
+  margin: 0 25px 25px 0;
   display: inline-block;
   vertical-align: top;
 }
@@ -23,8 +23,7 @@
   background: white;
   border-radius: 4px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  display: block;
   background-color: #f2f2f2;
   height: 100%;
 }

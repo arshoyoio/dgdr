@@ -32,7 +32,7 @@ const routes: Routes = [
         component: PlanningDeControleComponent,
       },
       {
-        path: 'fiche/:id/details',
+        path: 'fiche/:ref/details',
         component: FicheDetailsComponent,
       },
       {

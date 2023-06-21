@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
-import { QUESTIONNAIRE_STATUS, QUESTIONNAIRE_STATUS_COLOR, QUESTIONNAIRE_STATUS_ICON_CLASS } from '../../../main/constants/questionnaire-status';
-import { QUESTIONNAIRES } from '../../../main/services/fake-data/questionnaires';
+import { Component, Input } from '@angular/core';
+import { Fiches } from '~/main/models/fiches';
 
 @Component({
   selector: 'app-question-card',
   templateUrl: './question-card.component.html',
-  styleUrls: ['./question-card.component.css']
+  styleUrls: ['./question-card.component.css'],
 })
 export class QuestionCardComponent {
-  questions = QUESTIONNAIRES;
-  color: any = QUESTIONNAIRE_STATUS_COLOR;
-  icon: any = QUESTIONNAIRE_STATUS_ICON_CLASS;
-  statuts: any = QUESTIONNAIRE_STATUS
+  @Input() questions: { name: string, field: string }[];
+
+  @Input() fiche: Fiches | any;
+
+  @Input() respName?: string;
 }

@@ -20,7 +20,7 @@ export class NouveauFicheViergeComponent {
 
   async add() {
     await Swal.fire({
-      text: 'La fiche a été ajoutée avec succès.',
+      text: 'Succès.',
       icon: 'success',
       showConfirmButton: true,
     });

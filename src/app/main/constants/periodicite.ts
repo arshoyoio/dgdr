@@ -1,1 +1,1 @@
-export const PERIODICITE = ['Mensuel', 'Trimestriel', 'Semestriel', 'Annuel'];
+export const PERIODICITE = ['Ce mois', 'Ce trimestre', 'Ce Semestre', 'Cette année'];

@@ -15,6 +15,8 @@ import { STATUTS } from '../../constants/statuts';
 import { ChartComponent } from 'ng-apexcharts';
 import { ChartOptions } from '../../models/custom-chart-options';
 import { Router } from '@angular/router';
+import { FichesService } from '~/main/services/fiches.service';
+import { isEmpty } from 'lodash-es';
 
 @Component({
   selector: 'app-planning-de-controle',
@@ -43,11 +45,11 @@ export class PlanningDeControleComponent implements OnInit {
     fixed: [],
   };
 
-  constructor(private readonly toolsService: ToolsService, private router: Router) {
-    const responsables = FICHES.map((el) => el.responsable);
+  constructor(private readonly toolsService: ToolsService, private router: Router, public ficheService: FichesService) {
+    const responsables = FICHES.map((el) => el.respControle);
     const uniqueValues = [...new Set(responsables)];
     const result = uniqueValues.map((val) => val);
-    this.options = result;
+    this.options = result.filter(el => el) as string[];
   }
 
   private _filter(value: string): string[] {
@@ -61,7 +63,8 @@ export class PlanningDeControleComponent implements OnInit {
     if (!this.myControl.value) return true;
     const search: string = this.myControl.value as string;
     const regex = new RegExp(search, 'i');
-    return regex.test(fiche.responsable);
+    if (!fiche.respControle) return;
+    return regex.test(String(fiche.respControle));
   }
 
   ngOnInit(): void {
@@ -88,8 +91,8 @@ export class PlanningDeControleComponent implements OnInit {
     this.initChartData();
   }
 
-  details(id: string) {
-    this.router.navigateByUrl(`/fiche/${id}/details`);
+  details(fiche: Fiches, statut: string) {
+    this.router.navigate([`/fiche/${fiche.ref}/details`], { queryParams: { statut } });
   }
 
   initChartData() {
@@ -145,6 +148,20 @@ export class PlanningDeControleComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+    }
+
+    for (const [ index, value ] of Object.entries(this.data)) {
+      if (!isEmpty(value)) {
+        for (const el of value as Fiches[]) {
+          el.status = index;
+          if (index === 'broadcast') {
+            el.dateRelecture = new Date().toISOString();
+          } else if (index === 'fixed') {
+            el.dateDiffusion = new Date().toISOString();
+            el.dateControle = new Date().toISOString();
+          }
+        }
+      }
     }
     this.initChartData();
   }

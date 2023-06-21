@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { FicheDetailsComponent } from './components/fiche-details/fiche-details.component';
 import { QuestionCardComponent } from './directives/question-card/question-card.component';
+import { PlanningKanbanItemComponent } from './directives/planning-kanban-item/planning-kanban-item.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { QuestionCardComponent } from './directives/question-card/question-card.
     FichesComponent,
     PlanningDeControleComponent,
     FicheDetailsComponent,
-    QuestionCardComponent
+    QuestionCardComponent,
+    PlanningKanbanItemComponent
   ],
   imports: [
     MaterialModule,

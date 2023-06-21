@@ -1,9 +1,11 @@
-<div class="d-flex animate__animated animate__fadeInDown justify-content-center w-100 p-4 flex-column">
-  <!-- <h3 class="mb-4">Ajout d'une fiche vierge</h3>s -->
+<div
+  class="d-flex animate__animated animate__fadeInDown justify-content-center w-100 p-4 flex-column"
+>
+  <h1 class="mb-4">Ajout d'une fiche</h1>
 
   <mat-form-field appearance="outline">
     <mat-label>Référence</mat-label>
-    <input matInput placeholder="Placeholder" />
+    <input matInput />
     <!-- <mat-hint>Hint</mat-hint> -->
   </mat-form-field>
 
@@ -43,23 +45,145 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
+    <mat-label>Nature de risque</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one"
+        >Non-conformité</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Classe theme</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one">A</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Theme</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one"
+        >Organisation de la SGP</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Description de ton risque</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one"
+        >Risques liés à la gouvernance et à l'actionnariat</mat-option
+      >
+      <mat-option class="text-capitalize" value="one"
+        >Risques liés aux moyens humains de la SGP</mat-option
+      >
+      <mat-option class="text-capitalize" value="one"
+        >Risques liés aux moyens techniques de la SGP</mat-option
+      >
+      <mat-option class="text-capitalize" value="one"
+        >Risques liés à la solidité finanicère</mat-option
+      >
+      <mat-option class="text-capitalize" value="one"
+        >Risques relatifs aux fonds propres réglementaires</mat-option
+      >
+      <mat-option class="text-capitalize" value="one"
+        >Risques liés à la cybersécurité</mat-option
+      >
+      <mat-option class="text-capitalize" value="one"
+        >Risques de fraude</mat-option
+      >
+      <mat-option class="text-capitalize" value="one"
+        >Risques liés à la politique de rémunération</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Mesure préventive : dispositif / procédure</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one"
+        >Existence des statuts, pactes d'actionnaires Tenue des assemblées
+        Conseils de surveillance Directoire/ Conseil d'administration 2
+        dirigeants effectifs et temps de présence des dirigeants</mat-option
+      >
+      <mat-option class="text-capitalize" value="one"
+        >Présentation des fonctions et des responsabilités Niveau de
+        connaissance des collaborateurs Répartition des
+        responsabilités</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Formalisation de la mesure préventive</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one"
+        >Date signature des documents Calendrier des instances PV des
+        instances</mat-option
+      >
+      <mat-option class="text-capitalize" value="one"
+        >Organigramme avec ligne hiérarchique, identification des fonctions clés
+        Procédure d'organisation générale</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Présentation contrôle 1er niveau</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one">Kbis, PV</mat-option>
+      <mat-option class="text-capitalize" value="one"
+        >Mise à jour de l'organigramme</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Qui est en charge des contrôles de 1er niveau</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one">Service juridique / Secrétariat général</mat-option>
+      <mat-option class="text-capitalize" value="one">Direction générale/ DRH
+        Secrétariat général</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Qualification du risque de niveau 1</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one">Qualification du risque</mat-option>
+      <mat-option class="text-capitalize" value="one">sanction</mat-option>
+      <mat-option class="text-capitalize" value="one">commercial (clients/ réclamation)</mat-option>
+      <mat-option class="text-capitalize" value="one">financier</mat-option>
+      <mat-option class="text-capitalize" value="one">sanction</mat-option>
+      <mat-option class="text-capitalize" value="one">réputation</mat-option>
+      <mat-option class="text-capitalize" value="one">financier</mat-option>
+      <mat-option class="text-capitalize" value="one">sanction</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Qualification du risque de niveau 2</mat-label>
+    <mat-select>
+      <mat-option class="text-capitalize" value="one">Qualification du risque</mat-option>
+      <mat-option class="text-capitalize" value="one">réputation</mat-option>
+      <mat-option class="text-capitalize" value="one">financier</mat-option>
+      <mat-option class="text-capitalize" value="one">commercial (clients/ réclamation)</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Evaluation risque brut</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
     <mat-label>Ajouter un fichier</mat-label>
-    <input matInput placeholder="Ajouter un fichier">
+    <input matInput placeholder="Ajouter un fichier" />
     <button (click)="uploadFile()" mat-raised-button class="me-2" matSuffix>
-        <span>
-            <i class="bi me-2 bi-upload"></i>
-            <span>Ajouter un fichier</span>
-        </span>
+      <span>
+        <i class="bi me-2 bi-upload"></i>
+        <span>Ajouter un fichier</span>
+      </span>
     </button>
     <mat-hint>Il est possible d'ajouter plusieurs fichiers.</mat-hint>
   </mat-form-field>
 
   <div class="mt-4 d-flex justify-content-between">
-    <button mat-raised-button color="primary" (click)="add()">Ajouter une fiche vierge</button>
+    <button mat-raised-button color="primary" (click)="add()">Ajouter</button>
 
     <button mat-button (click)="cancel()">Annuler</button>
   </div>
-  
 </div>
 
-<input id="file-input" type="file" hidden>
+<input id="file-input" type="file" hidden />

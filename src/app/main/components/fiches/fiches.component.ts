@@ -19,7 +19,6 @@ export class FichesComponent {
     'responsable',
     'finalisation_date',
     'theme',
-    'risque',
     'fiche_vierge'
   ];
   dataSource = new MatTableDataSource<Fiches>(FICHES);

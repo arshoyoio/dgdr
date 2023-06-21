@@ -7,7 +7,6 @@ import { MaterialModule } from '../material.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ThemeComponent } from './components/theme/theme.component';
 import { NiveauDeRisqueComponent } from './components/niveau-de-risque/niveau-de-risque.component';
-import { CartographieComponent } from './components/cartographie/cartographie.component';
 import { GestionDesRolesComponent } from './components/gestion-des-roles/gestion-des-roles.component';
 import { AddPrivilegesComponent } from './directives/add-privileges/add-privileges.component';
 
@@ -18,7 +17,6 @@ import { AddPrivilegesComponent } from './directives/add-privileges/add-privileg
     DashboardComponent,
     ThemeComponent,
     NiveauDeRisqueComponent,
-    CartographieComponent,
     GestionDesRolesComponent,
     AddPrivilegesComponent
   ],

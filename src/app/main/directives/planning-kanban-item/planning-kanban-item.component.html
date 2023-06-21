@@ -1,0 +1,72 @@
+<div class="d-flex mb-2 flex-row flex-wrap" style="cursor: pointer">
+  <div
+    *ngIf="item.dateFinalisation"
+    class="me-2 mt-1 text-white ps-1 pe-1 rounded text-bg-success"
+    matTooltip="Date de finalisation"
+  >
+    {{ item.dateFinalisation | date : "dd/MM/YYYY" }}
+  </div>
+  <div class="me-2 mt-1 text-bleu" matTooltip="Date de relecture">
+    {{ item.dateRelecture | date : "dd/MM/YYYY" }}
+  </div>
+  <div class="me-2 mt-1 text-secondary" matTooltip="Date de contrôle">
+    {{ item.dateControle | date : "dd/MM/YYYY" }}
+  </div>
+  <div class="me-2 mt-1 text-muted" matTooltip="Date de diffusion">
+    {{ item.dateDiffusion | date : "dd/MM/YYYY" }}
+  </div>
+</div>
+<div
+  *ngIf="item.respControle"
+  class="mb-2 d-flex flex-row flex-wrap align-items-center"
+>
+  <div
+    [ngStyle]="{
+      'background-color': ficheService.genetateColorByRole(item.respControle)
+    }"
+    class="rounded-circle mr-2 fw-bold d-flex align-items-center justify-content-center"
+    style="width: 30px; height: 30px; font-size: 10px"
+    [matTooltip]="item.respControle"
+  >
+    {{ item.respControle | initialName }}
+  </div>
+</div>
+
+<p style="max-width: 250px; font-size: 17px;">{{ item.name }}</p>
+<p style="max-width: 250px;">{{ item.theme }}</p>
+
+<div class="me-2 mt-2 text-muted" matTooltip="Date de création">
+  Créé le : {{ item.createdAt | date : "dd/MM/YYYY" }}
+</div>
+<div class="flex-row d-flex flex-nowrap mt-2">
+  <div
+    class="d-flex flex-row flex-nowrap justify-content-end me-4"
+    *ngIf="column === 'broadcast' && item.respRelecture"
+  >
+    <span class="mt-1 text-secondary" style="font-size: 11px"
+      >Relecteur :
+    </span>
+    <div
+      class="rounded-circle border border-warning bg-warning text-light border-2 d-flex align-items-center justify-content-center ms-2"
+      style="width: 30px; height: 30px; font-size: 12px"
+      [matTooltip]="item.respRelecture"
+    >
+      {{ item.respRelecture | initialName }}
+    </div>
+  </div>
+  <div
+    class="d-flex flex-row flex-nowrap justify-content-end"
+    *ngIf="column === 'fixed' && item.respControle"
+  >
+    <span class="mt-1 text-secondary" style="font-size: 11px"
+      >Validé par :
+    </span>
+    <div
+      class="rounded-circle border border-success border-2 bg-success text-light d-flex align-items-center justify-content-center ms-2"
+      style="width: 30px; height: 30px; font-size: 12px"
+      [matTooltip]="item.respControle"
+    >
+      {{ item.respControle | initialName }}
+    </div>
+  </div>
+</div>

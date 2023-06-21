@@ -62,18 +62,18 @@
         <mat-card-title>{{ fiche.ref }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p>
+        <p *ngIf="fiche.respControle">
           <mat-chip>
-            {{ fiche.responsable }}
+            {{ fiche.respControle }}
           </mat-chip>
         </p>
 
         <p>
           <span class="fw-bold">Date de finalisation</span> :
-          {{ fiche.finalisationDate | date : "dd/MM/YYYY" }}
+          {{ fiche.dateDiffusion | date : "dd/MM/YYYY" }}
         </p>
         <p><span class="fw-bold">Thème</span> : {{ fiche.theme }}</p>
-        <p><span class="fw-bold">Risques</span> : {{ fiche.risque }}</p>
+        <p><span class="fw-bold">Risque</span> : {{ fiche.name }}</p>
       </mat-card-content>
       <mat-card-actions
         class="justify-content-center d-flex flex-column align-items-center"
@@ -147,7 +147,7 @@
       <ng-container matColumnDef="responsable">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Responsable</th>
         <td mat-cell *matCellDef="let element" (click)="openRef = element.ref">
-          <div *ngIf="openRef !== element.ref">{{ element.responsable }}</div>
+          <div *ngIf="openRef !== element.ref">{{ element.respControle }}</div>
           <div *ngIf="openRef === element.ref">
             <div role="button" class="menu-btn">
               <i class="bi bi-pencil-square m-1"></i>
@@ -163,7 +163,7 @@
         </th>
         <td mat-cell *matCellDef="let element" (click)="openRef = element.ref">
           <div *ngIf="openRef !== element.ref">
-            {{ element.finalisationDate | date : "dd/MM/YYYY" }}
+            {{ element.dateFinalisation | date : "dd/MM/YYYY" }}
           </div>
           <div *ngIf="openRef === element.ref">
             <div role="button" class="menu-btn">
@@ -188,9 +188,9 @@
       </ng-container>
 
       <ng-container matColumnDef="risque">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Risques</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Risque</th>
         <td mat-cell *matCellDef="let element" (click)="openRef = element.ref">
-          <div *ngIf="openRef !== element.ref">{{ element.risque }}</div>
+          <div *ngIf="openRef !== element.ref">{{ element.name }}</div>
           <div *ngIf="openRef === element.ref">
             <div role="button" class="menu-btn">
               <i class="bi bi-gear m-1"></i>

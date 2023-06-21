@@ -15,5 +15,10 @@ export class ToolsService {
   
     return differenceJours;
   }
+
+  generateFlatColor() {
+    var color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    return color;
+  }
   
 }

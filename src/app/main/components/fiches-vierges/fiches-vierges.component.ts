@@ -4,6 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FicheVierge } from '../../models/fiches-vierges';
 import { FICHES_VIERGES } from '../../services/fake-data/fiches-vierges';
+import { MatDialog } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-fiches-vierges',
@@ -32,8 +34,18 @@ export class FichesViergesComponent {
     this.dataSource.sort = this.sort;
   }
 
+  constructor(private readonly dialog: MatDialog) {}
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  async createFiche() {
+    await Swal.fire({
+      text: 'Une instance a été ajoutée dans le planning de contrôle.',
+      icon: 'success',
+      showConfirmButton: true,
+    });
   }
 }
